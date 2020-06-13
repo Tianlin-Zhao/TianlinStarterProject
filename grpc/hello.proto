@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package examples;
+
+// The hello service says hello.
+service FoodFindService {
+  // Sends a greeting.
+  rpc FindFood (FoodRequest) returns (FoodReply) {}
+  rpc GetFood (FoodVendorRequest) returns (RequestStatus) {}
+}
+
+// The request message containing the user's name.
+message FoodRequest {
+  int32 foodtype = 1;
+  int32 quantity = 2;
+}
+
+// The response message containing the greeting.
+message FoodReply {
+  string message = 1;
+}
+
+service FoodSupplyService {
+  rpc FindPossibleVendors (FoodRequest) returns (stream Vendor) {}
+  rpc UpdateVendor (VendorReg) returns (RegisterStatus) {}
+}
+
+message RegisterStatus {
+  bool regsuccess = 1;
+}
+
+message Vendor {
+  int32 portnumber = 1;
+  int32 quantity = 2;
+  int32 price = 3;
+}
+
+message VendorReg {
+  int32 portnumber = 1;
+  int32 foodtype = 2;
+  int32 quantity = 3;
+  int32 price = 4;
+}
+
+service FoodVendorService {
+  rpc TryProvideFood (FoodVendorRequest) returns (RequestStatus) {}
+}
+
+message FoodVendorRequest {
+  int32 foodtype = 1;
+  int32 quantity = 2;
+  int32 portnumber = 3;
+}
+
+message RequestStatus {
+  int32 requeststatus = 1;
+  string message = 2;
+}
