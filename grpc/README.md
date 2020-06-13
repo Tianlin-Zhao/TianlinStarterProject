@@ -1,8 +1,8 @@
-#How to Run
+# How to Run
 
 If this program cannot be built, this means that this project has be brought to a workspace. For example, copy this over to opencensus/examples/grpc.
 
-##Running Scheme
+## Running Scheme
 
 * To setup client: env STACKDRIVER\_PROJECT\_ID=tianlinzhao-2020-starter-proj ../../bazel-bin/examples/grpc/hello\_client 9008
 
