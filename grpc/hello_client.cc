@@ -132,6 +132,8 @@ int main(int argc, char **argv) {
     int quantity;
     string v_port;
     int vendor_port;
+    cout<<"Welcome to GoMart, where true programmers buy their food from."<<endl;
+    cout<<"(I am planning to make this into a multiplayer minigame if there's time for it)"<<endl;
     cout<<"Enter SearchFood or GetFood"<<endl;
     getline(cin,isn);
     if (isn=="SearchFood") {
